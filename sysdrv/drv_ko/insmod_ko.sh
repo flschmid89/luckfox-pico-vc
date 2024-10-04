@@ -29,6 +29,7 @@ __insmod os04a10.ko
 __insmod sc4336.ko
 __insmod sc3336.ko
 __insmod sc530ai.ko
+__insmod imx900.ko
 
 echo 1 > /sys/module/video_rkcif/parameters/clr_unready_dev
 echo 1 > /sys/module/video_rkisp/parameters/clr_unready_dev
@@ -69,7 +70,10 @@ lsmod | grep sc3336
 if [ $? -eq 0 ] ;then
     sensor_height=1296
 fi
-
+lsmod | grep imx900
+if [ $? -eq 0 ] ;then
+    sensor_height=1552
+fi
 __insmod rockit.ko mcu_fw_path="./hpmcu_wrap.bin" mcu_fw_addr=0xff6ff000 isp_max_h=$sensor_height
 
 udevadm control --start-exec-queue

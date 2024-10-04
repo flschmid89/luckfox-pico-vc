@@ -39,7 +39,7 @@ sudo apt-get install repo git ssh make gcc gcc-multilib g++-multilib module-assi
 ### 环境变量
 * 需要将交叉编译工具链设置
     ```
-    cd {SDK_PATH}/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/
+    cd {SDK_PATH}/tools/linux/toolchain/arm-buildroot-linux-gnueabihf/
     source env_install_toolchain.sh
     ```
 ### build.sh使用说明

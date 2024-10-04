@@ -22,7 +22,7 @@
 
 			csi_dphy_input0: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&sc530ai_out>;
+				remote-endpoint = <&imx900_out>;
 				data-lanes = <1 2>;
 			};
 			csi_dphy_input1: endpoint@1 {
@@ -66,8 +66,9 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c4m2_xfer>;
 
-	sc530ai: sc530ai@30 {
-		compatible = "smartsens,sc530ai";
+
+	imx900: imx900@30 {
+		compatible = "sony,imx900";
 		status = "okay";
 		reg = <0x30>;
 		clocks = <&cru MCLK_REF_MIPI0>;
@@ -81,7 +82,7 @@
 		rockchip,camera-module-name = "CMK-OT2115-PC1";
 		rockchip,camera-module-lens-name = "30IRC-F16";
 		port {
-			sc530ai_out: endpoint {
+			imx900_out: endpoint {
 				remote-endpoint = <&csi_dphy_input0>;
 				data-lanes = <1 2>;
 			};
