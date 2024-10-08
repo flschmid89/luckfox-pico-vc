@@ -5,6 +5,8 @@
 
 if VIDEO_V4L2
 
+source "drivers/media/i2c/vc/Kconfig"
+
 comment "IR I2C driver auto-selected by 'Autoselect ancillary drivers'"
 	depends on MEDIA_SUBDRV_AUTOSELECT && I2C && RC_CORE
 

@@ -227,3 +227,4 @@ obj-$(CONFIG_VIDEO_PREISP_DUMMY_SENSOR) += preisp-dummy.o
 
 
 obj-$(CONFIG_VIDEO_IMX900)	+= imx900.o skeleton.o
+obj-m	+= vc/
