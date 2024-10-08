@@ -1350,8 +1350,8 @@ static __maybe_unused const struct regval IMX900_slave_start_regs[] = {
  */
 static const struct IMX900_mode supported_modes[] = {
 	{
-		.bus_fmt = MEDIA_BUS_FMT_SRGGB10_1X10,
-		.width = 2712,
+		.bus_fmt = MEDIA_BUS_FMT_Y10_1X10,
+		.width = 2048,
 		.height = 1536,
 		.max_fps = {
 			.numerator = 10000,
@@ -1368,8 +1368,8 @@ static const struct IMX900_mode supported_modes[] = {
 		.vc[PAD0] = V4L2_MBUS_CSI2_CHANNEL_0,
 	},
 	{
-		.bus_fmt = MEDIA_BUS_FMT_SRGGB10_1X10,
-		.width = 2712,
+		.bus_fmt = MEDIA_BUS_FMT_Y10_1X10,
+		.width = 2048,
 		.height = 1536,
 		.max_fps = {
 			.numerator = 10000,
@@ -1389,8 +1389,8 @@ static const struct IMX900_mode supported_modes[] = {
 		.vc[PAD3] = V4L2_MBUS_CSI2_CHANNEL_1,//M->csi wr2
 	},
 	{
-		.bus_fmt = MEDIA_BUS_FMT_SRGGB10_1X10,
-		.width = 2712,
+		.bus_fmt = MEDIA_BUS_FMT_Y10_1X10,
+		.width = 2048,
 		.height = 1536,
 		.max_fps = {
 			.numerator = 10000,
@@ -1421,9 +1421,9 @@ static const struct IMX900_mode supported_modes[] = {
 
 static const struct IMX900_mode supported_modes_2lane[] = {
 	{
-		.bus_fmt = MEDIA_BUS_FMT_SRGGB10_1X10,
-		.width = 2712,
-		.height = 1538,
+		.bus_fmt = MEDIA_BUS_FMT_Y10_1X10,
+		.width = 2048,
+		.height = 1536,
 		.max_fps = {
 			.numerator = 10000,
 			.denominator = 300000,
@@ -1439,9 +1439,9 @@ static const struct IMX900_mode supported_modes_2lane[] = {
 		.vc[PAD0] = V4L2_MBUS_CSI2_CHANNEL_0,
 	},
 	{
-		.bus_fmt = MEDIA_BUS_FMT_SRGGB10_1X10,
-		.width = 2712,
-		.height = 1538,
+		.bus_fmt = MEDIA_BUS_FMT_Y10_1X10,
+		.width = 2048,
+		.height = 1536,
 		.max_fps = {
 			.numerator = 10000,
 			.denominator = 150000,
@@ -3159,6 +3159,7 @@ static int IMX900_probe(struct i2c_client *client,
 	u32 i, hdr_mode = 0;
 	const char *sync_mode_name = NULL;
 
+	printk(KERN_INFO "Reached driver version log point\n");
 
 	dev_info(dev, "driver version: %02x.%02x.%02x",
 		DRIVER_VERSION >> 16,

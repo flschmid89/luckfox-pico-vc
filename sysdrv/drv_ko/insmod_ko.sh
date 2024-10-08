@@ -30,6 +30,7 @@ __insmod sc4336.ko
 __insmod sc3336.ko
 __insmod sc530ai.ko
 __insmod imx900.ko
+__insmod skeleton.ko
 
 echo 1 > /sys/module/video_rkcif/parameters/clr_unready_dev
 echo 1 > /sys/module/video_rkisp/parameters/clr_unready_dev
