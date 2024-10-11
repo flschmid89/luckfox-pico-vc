@@ -1,5 +1,5 @@
 
-SENSOR_DRIVER      := vc_mipi_common_bcm2835
+SENSOR_DRIVER      := vc_mipi_common_rk
 SENSOR_DRIVER      += vc_mipi_common
 SENSOR_DRIVER      += vc_mipi_modules_0
 

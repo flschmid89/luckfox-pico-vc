@@ -2575,6 +2575,8 @@ static const struct of_device_id imx_of_match[] = {
 	{ .compatible = "sony,vc_mipi_imx327c" },
 	{ .compatible = "sony,vc_mipi_imx412" },
 	{ .compatible = "sony,vc_mipi_imx415" },
+	{ .compatible = "sony,vc_mipi_imx900" },
+
 	{ .compatible = "omnivision,vc_mipi_ov9281" },
 	{ /* sentinel */ },
 };

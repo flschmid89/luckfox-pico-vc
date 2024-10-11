@@ -2,9 +2,9 @@
  *
  * Copyright Vision Components 2024
  *
- * vc_mipi_common_bcm2835.h
+ * vc_mipi_common_rk.h
  *
- * Author: Michael Steinel
+ * Author: Florian Schmid
  *
  *************************************************/
 #include <linux/version.h>
@@ -25,16 +25,16 @@
 #include <media/v4l2-image-sizes.h>
 #include <media/v4l2-mediabus.h>
 
-#include "vc_mipi_common_bcm2835.h"
+#include "vc_mipi_common_rk.h"
 
-int vc_mipi_common_bcm2835_platform_init(struct i2c_client *client, struct regulator **io_regulator, struct regulator **core_regulator, struct regulator **analog_regulator, struct gpio_desc **rst_gpio)
+int vc_mipi_common_rk_platform_init(struct i2c_client *client, struct regulator **io_regulator, struct regulator **core_regulator, struct regulator **analog_regulator, struct gpio_desc **rst_gpio)
 {
 	return 0;
 }
-EXPORT_SYMBOL( vc_mipi_common_bcm2835_platform_init );
+EXPORT_SYMBOL( vc_mipi_common_rk_platform_init );
 
 
-struct i2c_client * vc_mipi_common_bcm2835_rom_probe(struct i2c_adapter *adapter, u8 addr)
+struct i2c_client * vc_mipi_common_rk_rom_probe(struct i2c_adapter *adapter, u8 addr)
 {
 	struct i2c_board_info info = {
 		I2C_BOARD_INFO("i2c", addr),
@@ -50,10 +50,10 @@ struct i2c_client * vc_mipi_common_bcm2835_rom_probe(struct i2c_adapter *adapter
 	}
 #endif
 }
-EXPORT_SYMBOL( vc_mipi_common_bcm2835_rom_probe );
+EXPORT_SYMBOL( vc_mipi_common_rk_rom_probe );
 
 
-int vc_mipi_common_bcm2835_reg_write(struct i2c_client *client, const u16 addr, const u8 data)
+int vc_mipi_common_rk_reg_write(struct i2c_client *client, const u16 addr, const u8 data)
 {
 	struct i2c_adapter *adap = client->adapter;
 	struct i2c_msg msg;
@@ -74,10 +74,10 @@ int vc_mipi_common_bcm2835_reg_write(struct i2c_client *client, const u16 addr, 
 				addr, data, client->addr, ret);
 	return ret == 1 ? 0 : -EIO;
 }
-EXPORT_SYMBOL( vc_mipi_common_bcm2835_reg_write );
+EXPORT_SYMBOL( vc_mipi_common_rk_reg_write );
 
 
-int vc_mipi_common_bcm2835_reg_read(struct i2c_client *client, const u16 addr)
+int vc_mipi_common_rk_reg_read(struct i2c_client *client, const u16 addr)
 {
 	u8 buf[2] = {addr >> 8, addr & 0xff};
 	int ret;
@@ -107,13 +107,13 @@ int vc_mipi_common_bcm2835_reg_read(struct i2c_client *client, const u16 addr)
 
 	return buf[0];
 }
-EXPORT_SYMBOL( vc_mipi_common_bcm2835_reg_read );
+EXPORT_SYMBOL( vc_mipi_common_rk_reg_read );
 
 
 
 
 
-static int __init  vc_mipi_common_bcm2835_init(void)
+static int __init  vc_mipi_common_rk_init(void)
 {
 	//printk("called %s()", __FUNCTION__);
 	pr_info("%s (%s) init\n",
@@ -122,7 +122,7 @@ static int __init  vc_mipi_common_bcm2835_init(void)
 	return 0;
 }
 
-static void __exit  vc_mipi_common_bcm2835_exit(void)
+static void __exit  vc_mipi_common_rk_exit(void)
 {
 	//printk("called %s()", __FUNCTION__);
 	pr_info("%s (%s) exit\n",
@@ -130,10 +130,10 @@ static void __exit  vc_mipi_common_bcm2835_exit(void)
 			THIS_MODULE->version);
 }
 
-module_init(vc_mipi_common_bcm2835_init);
-module_exit(vc_mipi_common_bcm2835_exit);
+module_init(vc_mipi_common_rk_init);
+module_exit(vc_mipi_common_rk_exit);
 
 MODULE_VERSION("0.2.8");
-MODULE_DESCRIPTION("Vision Components GmbH - VC MIPI Common BCM2835 driver");
-MODULE_AUTHOR("Michael Steinel, Vision Components GmbH <mipi-tech@vision-components.com>");
+MODULE_DESCRIPTION("Vision Components GmbH - VC MIPI Common RK driver");
+MODULE_AUTHOR("Florian Schmid, Vision Components GmbH <mipi-tech@vision-components.com>");
 MODULE_LICENSE("GPL v2");
