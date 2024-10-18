@@ -269,10 +269,10 @@
 	//pinctrl-0 = <&i2c4m2_xfer>;
 
 
-	imx900: imx900@30 {
-		compatible = "sony,imx900";
+	vc_mipi_imx900: vc_mipi_imx900@1a {
+		compatible = "sony,vc_mipi_imx900";
 		status = "okay";
-		reg = <0x30>;
+		reg = <0x1a>;
 		clocks = <&cru MCLK_REF_MIPI0>;
 		clock-names = "xvclk";
 		reset-gpios = <&gpio3 RK_PC5 GPIO_ACTIVE_HIGH>;
@@ -283,10 +283,28 @@
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "CMK-OT2115-PC1";
 		rockchip,camera-module-lens-name = "30IRC-F16";
+		io-config = /bits/ 32 <0x00>;
+		sensor-mode = <0>;
+		description = "8 Bit";
+		external-trigger-mode = <0>;
+
+		//clocks = <&vc_mipi_imx900_i2c1_csi0_clk>;
+
+		vc_mipi_imx900_i2c1_csi0_clk: camera-clk {
+			compatible = "fixed-clock";
+			#clock-cells = <0>;
+			clock-frequency = <54000000>;
+		};
+
+
 		port {
 			imx900_out: endpoint {
 				remote-endpoint = <&csi_dphy_input0>;
 				data-lanes = <1 2>;
+				clock-lanes = <0>;
+				clock-noncontinuous;
+				link-frequencies =
+				/bits/ 64 <1485000000>;
 			};
 		};
 	};

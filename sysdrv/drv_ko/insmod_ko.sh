@@ -29,8 +29,11 @@ __insmod os04a10.ko
 __insmod sc4336.ko
 __insmod sc3336.ko
 __insmod sc530ai.ko
-__insmod imx900.ko
 __insmod skeleton.ko
+__insmod vc_mipi_common_rk.ko
+__insmod vc_mipi_common.ko
+__insmod vc_mipi_modules_0.ko
+
 
 echo 1 > /sys/module/video_rkcif/parameters/clr_unready_dev
 echo 1 > /sys/module/video_rkisp/parameters/clr_unready_dev
@@ -74,6 +77,10 @@ fi
 lsmod | grep imx900
 if [ $? -eq 0 ] ;then
     sensor_height=1552
+fi
+lsmod | grep vc_mipi_modules_0
+if [ $? -eq 0 ] ;then
+    sensor_height=1560
 fi
 __insmod rockit.ko mcu_fw_path="./hpmcu_wrap.bin" mcu_fw_addr=0xff6ff000 isp_max_h=$sensor_height
 

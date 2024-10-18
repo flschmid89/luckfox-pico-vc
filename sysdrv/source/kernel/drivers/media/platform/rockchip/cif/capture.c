@@ -4551,10 +4551,12 @@ static int rkcif_sanity_check_fmt(struct rkcif_stream *stream,
 		crop = (struct v4l2_rect *)s_crop;
 	else
 		crop = &stream->crop[CROP_SRC_ACT];
+	v4l2_info(v4l2_dev, "crop: left %d, top %d, width %d, height %d\n",
+		  crop->left, crop->top, crop->width, crop->height);
 
 	if (crop->width + crop->left > input.width ||
 	    crop->height + crop->top > input.height) {
-		v4l2_err(v4l2_dev, "crop size is bigger than input\n");
+		v4l2_err(v4l2_dev, "crop size is bigger than input(%d,%d)\n", input.width, input.height);
 		return -EINVAL;
 	}
 

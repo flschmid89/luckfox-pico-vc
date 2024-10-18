@@ -133,7 +133,7 @@ static void __exit  vc_mipi_common_rk_exit(void)
 module_init(vc_mipi_common_rk_init);
 module_exit(vc_mipi_common_rk_exit);
 
-MODULE_VERSION("0.2.8");
+MODULE_VERSION("0.2.9");
 MODULE_DESCRIPTION("Vision Components GmbH - VC MIPI Common RK driver");
 MODULE_AUTHOR("Florian Schmid, Vision Components GmbH <mipi-tech@vision-components.com>");
 MODULE_LICENSE("GPL v2");
