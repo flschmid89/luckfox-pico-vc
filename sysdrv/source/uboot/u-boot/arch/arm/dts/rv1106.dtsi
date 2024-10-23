@@ -673,7 +673,7 @@
 		clock-names = "i2c", "pclk";
 		pinctrl-names = "default";
 		pinctrl-0 = <&i2c4m0_xfer>;
-		status = "disabled";
+		status = "okay";
 	};
 
 	pwm8: pwm@ff490000 {

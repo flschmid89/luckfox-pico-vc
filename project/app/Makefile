@@ -22,6 +22,9 @@ app_src := $(filter-out ./component/,$(app_src))
 component_src := $(wildcard ./component/*/Makefile)
 all_src += $(component_src)
 all_src += $(app_src)
+
+vcmipidemo_src := $(./vcmipidemo_0.7.0/src/Makefile)
+all_src += $(vcmipidemo_src)
 all_src := $(dir $(all_src))
 
 
