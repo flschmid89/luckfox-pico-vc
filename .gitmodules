@@ -1,3 +1,7 @@
 [submodule "ubuntu"]
 	path = sysdrv/tools/board/ubuntu
 	url = https://github.com/luckfox-eng33/pico_ubuntu.git
+
+[submodule "sysdrv/source/kernel/drivers/media/i2c/vc_mipi_core"]
+	path = sysdrv/source/kernel/drivers/media/i2c/vc_mipi_core
+	url = https://github.com/FSCHMID-VC/vc_mipi_rk.git

@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   devluckfox:
     image:  luckfoxtech/luckfox_pico:1.0
